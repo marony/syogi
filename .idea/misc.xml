@@ -4,13 +4,6 @@
     <disable_hints />
   </component>
   <component name="IdProvider" IDEtalkID="B2D0989ED3CE9147F563E9C0E1BA46D9" />
-  <component name="LeiningenProjectsManager">
-    <option name="projectFiles">
-      <list>
-        <option value="file://$PROJECT_DIR$/project.clj" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
