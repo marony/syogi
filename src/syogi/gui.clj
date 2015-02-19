@@ -25,8 +25,6 @@
         frame-y (:height frame-size)]
     (letfn [(draw-piece [graphics [x y :as position] {:keys [id type nari owner], :as piece}]
               "駒を描画"
-;            (let [draw-x (+ piece-x (* x board-size) (int (/ piece-x 2.0)))
-;                  draw-y (+ piece-y (* y board-size) (int (/ piece-y 2.0)) (.. graphics getFontMetrics getAscent))]
               (let [draw-x (+ piece-x (* x piece-x))
                     draw-y (+ piece-y (* y piece-y) (.. graphics getFontMetrics getAscent))
                     aft (java.awt.geom.AffineTransform.)]
@@ -35,8 +33,8 @@
                   (.setColor graphics Color/BLACK))
                 (if (= owner :SECOND_MOVE)
                   (.setToRotation aft (double (java.lang.Math/toRadians 180))
-                    (double (+ draw-x (/ piece-x 2))) (double draw-y))
-                  (.setToRotation aft (double 0.0) (double draw-x) (double draw-y)))
+                    (double (+ draw-x (/ (double piece-x) 3))) (double draw-y))
+                  (.setToTranslation aft (/ (double piece-x) 3) (/ (double piece-y) 3)))
                 (doto graphics
                   (.setTransform aft)
                   (.drawString ((piece-type nari) type) draw-x draw-y))))]
